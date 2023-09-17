@@ -8,6 +8,7 @@ export const fetchProducts = () => {
       const response = await axios.get("https://fakestoreapi.com/products");
       dispatch({ type: ActionTypes.FETCH_PRODUCTS_SUCCESS, payload: response.data });
     } catch (err) {
+      alert(err.message)
       dispatch({ type: ActionTypes.FETCH_PRODUCTS_FAILURE, payload: err.message });
     }
   };
