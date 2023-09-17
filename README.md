@@ -91,12 +91,12 @@ To run the project locally, follow these steps:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/Yusuf-Software/health360-responsive-product-card
+   git clone https://github.com/Yusuf-Software/health360-product-card
    ```
 
 2. Navigate to the project directory:
     ```bash
-    cd health360-responsive-product-card
+    cd health360-product-card
 3. Install dependencies and Start the development server using npm or yarn:
     ```bash
     npm install then npm start
