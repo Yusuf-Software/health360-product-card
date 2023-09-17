@@ -14,7 +14,7 @@
     .card {
         @apply
         bg-white text-gray-700
-        w-72
+        w-80 md:w-72
         /* min-h-[2rem] */
         shadow-lg rounded-md overflow-hidden
     }

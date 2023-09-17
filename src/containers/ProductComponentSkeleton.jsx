@@ -12,7 +12,7 @@ const ProductComponentSkeleton = ({cards}) => {
         </div>
 
         <div className="h-[17.1rem] flex items-center self-center">
-            <Skeleton width="18rem" height="19.9rem" className="mt-0 max-h-full max-w-full -z-10"/>
+            <Skeleton width="22rem" height="18.9rem" className="mt-0 max-h-full max-w-full -z-10"/>
         </div>
 
         <div className="w-full mt-4 h-0.5 bg-gray-200"></div>
