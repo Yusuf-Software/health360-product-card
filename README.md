@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Redux Shop - React Redux E-commerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Redux Shop is a simple e-commerce application built with React and Redux. It allows users to browse and interact with a list of products. Users can add or remove products from their favorites list. The project is structured with reusable components and utilizes Redux for state management.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Components](#components)
+- [Redux Store](#redux-store)
+- [Usage](#usage)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Components
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The project consists of several React components that serve different purposes. Below is an overview of some key components and their expected props:
 
-### `npm test`
+### ProductComponent
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Displays detailed information about a product.
+- **Props**:
+  - `id` (number, required): The unique ID of the product.
+  - `title` (string, required): The title of the product.
+  - `image` (string, required): The URL of the product image.
+  - `price` (number, required): The price of the product.
+  - `description` (string): The description of the product (default: 'No description available').
+  - `rating` (object, required):
+    - `rate` (number, required): The rating of the product (out of 5).
+    - `count` (number, required): The number of customer reviews.
+  - `category` (string, required): The category of the product.
 
-### `npm run build`
+### ProductListing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Displays a list of products.
+- Uses the `ProductComponent` to render individual products.
+- Fetches products from an API using Redux actions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Favorite
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Allows users to add or remove a product from their favorites list.
+- **Props**:
+  - `productId` (number, required): The ID of the product to add/remove from favorites.
 
-### `npm run eject`
+### Star
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Displays a star rating and the number of customer reviews.
+- **Props**:
+  - `rate` (number): The rating value (out of 5).
+  - `reviews` (number): The number of customer reviews.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To use the `ProductComponent`, import it into your React application and include it within your JSX. Here's an example of how to use the component with the expected props:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```jsx
+import ProductComponent from "./ProductComponent";
+<ProductComponent
+  id={1}
+  title="Sample Product"
+  image="/sample-image.jpg"
+  price={19.99}
+  description="This is a sample product description."
+  rating={{ rate: 4.5, count: 100 }}
+  category="Electronics"
+/>
 
-## Learn More
+```
+## Redux Store
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The project uses Redux for state management. The Redux store includes the following slices:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `allProducts`: Manages the products and favorites list.
 
-### Code Splitting
+  - **State**:
+    - `products` (array): An array of product objects.
+    - `favorites` (array): An array of product IDs added to favorites.
+    - `loading` (boolean): Indicates if products are being fetched.
+    - `error` (string): Stores error messages if there's a failure in fetching products.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Actions**:
+  - `fetchProducts()`: Fetches products from an API and updates the store.
+  - `addToFavorites(productId)`: Adds a product to the favorites list.
+  - `removeFromFavorites(productId)`: Removes a product from the favorites list.
 
-### Analyzing the Bundle Size
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To run the project locally, follow these steps:
 
-### Making a Progressive Web App
+1. Clone this repository to your local machine:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   git clone https://github.com/Yusuf-Software/health360-responsive-product-card
+   ```
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. Navigate to the project directory:
+    ```bash
+    cd health360-responsive-product-card
+3. Install dependencies and Start the development server using npm or yarn:
+    ```bash
+    npm install then npm start
+    # or
+    yarn install then yarn start
