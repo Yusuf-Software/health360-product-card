@@ -2,7 +2,6 @@ import React from "react";
 import {FaStar, FaStarHalfAlt} from "react-icons/fa";
 import {AiOutlineStar} from "react-icons/ai";
 
-import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 
 const Star = ({rate=2.5, reviews=100}) => {
@@ -18,7 +17,6 @@ const Star = ({rate=2.5, reviews=100}) => {
                 }
             </span>
         )
-
 
     })
     return (

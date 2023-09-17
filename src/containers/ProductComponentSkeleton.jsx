@@ -1,8 +1,4 @@
 import React from "react";
-import Star from "./Star";
-import Favorite from "./Favorite";
-import PropTypes from "prop-types";
-// skeleton
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 
